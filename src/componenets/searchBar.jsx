@@ -14,8 +14,6 @@ const SearchBar = ({placeHolder,searchType}) => {
         setInputValue('')
     }
     const handleForm = (event) => {
-        event.preventDefault()
-        if(event.target.value === '') return false
         setInputValue(event.target.value)
     }
     return(

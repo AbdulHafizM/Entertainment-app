@@ -2,13 +2,9 @@ import React, { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import './movie.css'
+import './section.scss'
 
 const TvInfo = () => {
-    const lang = {
-        'en' : 'English',
-        'ja' : 'Japanese',
-        'fr' : 'French'
-    }
     const {id} = useParams()
     const [film, setFilm] = useState([])
     const [casts, setCasts] = useState([])
@@ -36,7 +32,7 @@ const TvInfo = () => {
     return(
         <div className="movie_info">
         {loading ? (
-            <div className="loader">
+            <div className="loader section">
               <CircularProgress />
             </div>
           ) : <>

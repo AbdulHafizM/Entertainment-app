@@ -2,6 +2,7 @@ import React, { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import './movie.css'
+import './section.scss'
 
 const MovieInfo = () => {
     const {id} = useParams()
@@ -31,7 +32,7 @@ const MovieInfo = () => {
     return(
         <div className="movie_info">
             {loading ? (
-            <div className="loader">
+            <div className="loader section">
               <CircularProgress />
             </div>
           ) : <>

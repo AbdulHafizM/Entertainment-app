@@ -120,8 +120,8 @@
   align-items: center;
 }
 
-
 .movie_info{
+  height: 100%;
   display: grid;
   grid-template-columns: 0.9fr 1.4fr;
   padding: 2.5em;
