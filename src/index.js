@@ -1,20 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter} from 'react-router-dom'
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from './App'
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
-    
-);
-
-//0c67b96606a1f9095e44781655ac394f
-//http://192.168.43.205:3000
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </React.StrictMode>
+) 

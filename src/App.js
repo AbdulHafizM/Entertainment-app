@@ -1,71 +1,88 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {Routes,
-        Route } from 'react-router-dom';
-import './App.scss';
-import Home from './componenets/home'
-import Movie from './componenets/movie';
-import Tv from './componenets/tv';
-import MovieInfo from './componenets/movie-info';
-import TvInfo from './componenets/tvInfo';
-import ViewAll from './componenets/viewAll';
-import Search from './componenets/search'
-import SearchBar from './componenets/searchBar';
-import ViewAllTv from './componenets/viewAllTv';
-import GenreFind from './componenets/genreLoad';
-import ErrorPage from './componenets/errorPage';
+import  React from 'react'
+import './App.css'
+import {Route, Routes, Link } from 'react-router-dom'
+import {Home} from './pages/Home'
+import {Coming} from './pages/Coming'
+import {Leaderboard} from './pages/Leaderboard'
+import {Types} from './pages/Types'
+import {Tv} from './pages/Tv'
+import ErrorPage from './pages/errorPage';
+import {home, types, tv} from './icons'
+import MovieInfo from './pages/movie-info'
+import TvInfo from './pages/tvInfo'
+import GenreInfo from './pages/genreInfo'
+import { TvLeaderBoard } from './pages/tvLeaderboard'
+import { Trending } from './pages/Trending'
+import { Recommendations } from './pages/Recommendations' 
+import { InTheatres } from './pages/InTheatres'
+import { TvAiringToday } from './pages/tvAiringToday'
+import { TvOnAir } from './pages/tvOnAir'
+import { TvPopular } from './pages/TvPopular'
+import { ViewInTheatres } from './pages/viewInTheatres'
+import { ViewComing } from './pages/ViewComing'
+import { ViewLeader } from './pages/ViewLeader'
+import { ViewRecommendations } from './pages/ViewRecommendations'
+import { ViewTvAiringToday } from './pages/ViewTvAiringToday'
+import { ViewTvLeader } from './pages/ViewTvLeader'
+import { ViewTvOnAir } from './pages/ViewTvOnAir'
+import { ViewTvPopular } from './pages/ViewTvPopular'
 
-function App() {
-  const [searchType, setSearchType] = useState('')
-  const [type, setType] = useState('multi')
-  const [placeHolder, setPlaceHolder] = useState('Search for movies or Tv shows')
-  
 
-  //<Route path={`/search/:type/:keyword`} element={<Search />}></Route>
-
-  return (
-    <div className="app">
-      <div className='wrapper'>
-      <div className='side--bar fixed'>
-         <nav>
-          <div className='pos-nav'>
-            <header>
-              <svg width="1em" height="1em" viewBox="0 0 33 27" xmlns="http://www.w3.org/2000/svg"><path d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z" fill="#007AFF"></path></svg>
-            </header>
-            <div className='align-a'>
-              <a href='/' className='px'>
-              <svg fill="currentColor" width="1em" height="1em" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 0H1C.4 0 0 .4 0 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11H1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1ZM19 0h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1Z"></path></svg>
-              </a>
-              <Link to='/movie' className='px'><svg fill="currentColor" width="1em" height="1em" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M16.956 0H3.044A3.044 3.044 0 0 0 0 3.044v13.912A3.044 3.044 0 0 0 3.044 20h13.912A3.044 3.044 0 0 0 20 16.956V3.044A3.044 3.044 0 0 0 16.956 0ZM4 9H2V7h2v2Zm-2 2h2v2H2v-2Zm16-2h-2V7h2v2Zm-2 2h2v2h-2v-2Zm2-8.26V4h-2V2h1.26a.74.74 0 0 1 .74.74ZM2.74 2H4v2H2V2.74A.74.74 0 0 1 2.74 2ZM2 17.26V16h2v2H2.74a.74.74 0 0 1-.74-.74Zm16 0a.74.74 0 0 1-.74.74H16v-2h2v1.26Z"></path></svg></Link>
-              <Link to='/tv' className='px'><svg  fill="currentColor" width="1em" height="1em" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M20 4.481H9.08l2.7-3.278L10.22 0 7 3.909 3.78.029 2.22 1.203l2.7 3.278H0V20h20V4.481Zm-8 13.58H2V6.42h10v11.64Zm5-3.88h-2v-1.94h2v1.94Zm0-3.88h-2V8.36h2v1.94Z"></path></svg></Link>
+// d423ebd0
+function App(){
+    return (
+        <>
+            <div className='lists'>
+                <ul>
+                    <li className='li'><Link to='/'><i className='home-icon icons'>{home}</i></Link></li>
+                    <li className='li'><Link to='/types'><i className='types-icon icons'>{types}</i></Link></li>
+                    <li className='li active'><Link to='/tv'><i className='tv-icon icons'>{tv}</i></Link></li>
+                </ul>
             </div>
-            <div>
-             
-            </div>
-           </div>
-         </nav>
-      </div>
-
-      <div className='main--section'>
-        <SearchBar searchType={type} placeHolder={placeHolder}/>
-         <div className='content-container'>
-          <Routes>
-            <Route path='/' element={<Home setSearchType={setSearchType} searchType={searchType}/>}></Route>
-            <Route path='/movie' element={<Movie setType={setType} type={type} setPlaceHolder={setPlaceHolder} />}></Route>
-            <Route path='/tv' element={<Tv setType={setType} type={type} setPlaceHolder={setPlaceHolder} />} />
-            <Route path='/movie/:id' element={<MovieInfo />}></Route>
-            <Route path='/tv/:id' element={<TvInfo />}></Route>
-            <Route path='/search/:type/:keyword' element={<Search />}></Route>
-            <Route path='/movies/:category' element={<ViewAll />}></Route>
-            <Route path='/genre/:type/:genre/:id' element={<GenreFind />}></Route>
-            <Route path='/tvshow/:category' element={<ViewAllTv />}></Route>
-            <Route path='*' element={<ErrorPage />}></Route>
-          </Routes>
-        </div>
-      </div>
-      </div>
-    </div>
-  );
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/types' element={<Types/>}/>
+                <Route path='/leaderboard' element={<Leaderboard/>}/>
+                <Route path='/trending' element={<Trending/>}/>
+                <Route path='/inTheatres' element={<InTheatres/>}/>
+                <Route path='/upcoming' element={<Coming/>}/>
+                <Route path='/recommendations' element={<Recommendations/>}/>
+                <Route path='/tv' element={<Tv/>}/>
+                <Route path='/movie-info/:id' element={<MovieInfo/>}/>
+                <Route path='/tvInfo/:id' element={<TvInfo />}></Route>
+                <Route path='/genreInfo/:id' element={<GenreInfo />}></Route>
+                <Route path='/tvLeaderboard' element={<TvLeaderBoard />}></Route>
+                <Route path='/tvOnAir' element={<TvOnAir />}></Route>
+                <Route path='/tvAiringToday' element={<TvAiringToday />}></Route>
+                <Route path='/tvPopular' element={<TvPopular />}></Route>
+                <Route path='/ViewTrending' element={<ViewInTheatres />}></Route>
+                <Route path='/ViewComing' element={<ViewComing />}></Route>
+                <Route path='/ViewInTheatres' element={<ViewInTheatres />}></Route>
+                <Route path='/ViewLeader' element={<ViewLeader />}></Route>
+                <Route path='/ViewRecommendations' element={<ViewRecommendations />}></Route>
+                <Route path='/ViewTvAiringToday' element={<ViewTvAiringToday />}></Route>
+                <Route path='/ViewTvLeader' element={<ViewTvLeader />}></Route>
+                <Route path='/ViewTvOnAir' element={<ViewTvOnAir />}></Route>
+                <Route path='/ViewTvPopular' element={<ViewTvPopular />}></Route>
+                <Route path='*' element={<ErrorPage />}></Route>
+            </Routes>
+        </>
+    )
 }
+const list = document.querySelectorAll('.li')
+function activeLink(){
+    list.forEach((item) => 
+      item.classList.remove('active'))
+      this.classList.add('active')
+    }
+    list.forEach((item =>
+    item.addEventListener('click', activeLink)))
 
-export default App;
+// https://api.themoviedb.org/3/trending/all/day?api_key=15e383204c1b8a09dbfaaa4c01ed7e17 - trending
+// https://api.themoviedb.org/3/discover/movie?api_key=15e383204c1b8a09dbfaaa4c01ed7e17&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate - recommendations page
+// https://api.themoviedb.org/3/movie/upcoming?api_key=15e383204c1b8a09dbfaaa4c01ed7e17&language=en-US&page=1 - upcoming
+// https://api.themoviedb.org/3/tv/popular?api_key=15e383204c1b8a09dbfaaa4c01ed7e17&language=en-US&page=1 - tv-popular
+export default App
+
+
+    
